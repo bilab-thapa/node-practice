@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Page</title>
+    <style>
+        /* Internal CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ff5733; /* Background color for error */
+            color: #fff; /* Text color */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .error-message {
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .error-message h1 {
+            font-size: 24px;
+        }
+
+        .error-message p {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .back-button {
+            background-color: #007bff; /* Button color */
+            color: #fff; /* Button text color */
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none; /* Remove underline */
+            margin-top: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3; /* Hover color */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="error-message">
+            <h1>Error!</h1>
+            <p>Something went wrong. Invalid Credentials.</p>
+            <a class="back-button" href="/login">Go Back</a>
+        </div>
+    </div>
+</body>
+</html>

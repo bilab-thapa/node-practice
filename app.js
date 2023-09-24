@@ -14,7 +14,11 @@ app.set("view engine", "ejs");
 //dbconnection
 require("./model/index");
 
-app.get("/", async (req, res) => {
+app.get("/", (req, res) => {
+  res.render("slash");
+});
+
+app.get("/home", async (req, res) => {
   const allProduct = await product.findAll();
   console.log(allProduct);
   res.render("product", { product: allProduct });
@@ -59,12 +63,12 @@ app.post("/login", async (req, res) => {
   if (userExist.length > 0) {
     const isMatch = bcrypt.compareSync(password, userExist[0].password);
     if (isMatch) {
-      res.redirect("/");
+      res.redirect("/home");
     } else {
-      res.send("Invalid Credentials");
+      res.render("error");
     }
   } else {
-    res.send("Invalid Credentials");
+    res.render("error");
   }
 });
 
@@ -84,7 +88,7 @@ app.post("/createProduct", async (req, res) => {
     image: image,
   });
   console.log(req.body);
-  res.redirect("/");
+  res.redirect("/home");
 });
 
 app.get("/single/:id", async (req, res) => {

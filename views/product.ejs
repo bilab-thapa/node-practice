@@ -14,16 +14,12 @@
         .top-bar {
             background-color: #F7A072;
             color: #fff;
-            padding: 10px 0;
+            padding: 5px 0;
             text-align: center;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-        }
-
-        .store-name {
-            font-size: 1.5rem;
         }
 
         .container {
@@ -76,8 +72,26 @@
             text-decoration: none;
         }
 
+
+        .logout-button {
+            background-color: red;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+        }
+
+        .logout-button:hover{
+            transform: scale(1.05);
+        }
+
         .add-button:hover {
-            
             transform: scale(1.05);
         }
 
@@ -93,12 +107,13 @@
 </head>
 <body>
     <div class="top-bar">
-        <h1 class="store-name">Node Store</h1>
+        <h2>Node Store</h2>
     </div>
 
     <div class="button">
 
     <a class="add-button" href="/createProduct">Add Product</a>
+    <a class="logout-button" href="/">Logout</a>
     </div>
 
     <div class="container">

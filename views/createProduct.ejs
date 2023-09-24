@@ -13,11 +13,28 @@
             background-color: #f1f1f1;
         }
 
-        header {
+        .top-bar {
             background-color: #F7A072;
             color: #fff;
-            padding: 2px 0px;
+            padding: 5px 0;
             text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+        .go-home {
+            background-color: #00A7E1;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            text-decoration: none;
         }
 
         nav {
@@ -88,11 +105,13 @@
     </style>
 </head>
 <body>
-    <header>
+    <div class="top-bar">
         <h2>Product Addition Page</h2>
-    </header>
+    </div>
+   
     <nav>
         <a href="/"><h2>Home</h2></a>
+        <button><a href="/home" class="go-home">Home</a></button>
     </nav>
     <div class="container">
         <div class="card">

@@ -20,7 +20,12 @@
         .top-bar {
             background-color: #F7A072;
             color: #fff;
+            padding: 5px 0;
             text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
         }
 
         .top-bar a{
@@ -31,7 +36,6 @@
             font-size: 2rem;
         }
 
-        /* Product details styles */
         .product-details {
             display: flex;
             justify-content: center;
@@ -39,14 +43,14 @@
             min-height: 100vh;
         }
 
+
+
         .product-window {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 80px;
-            text-align: center;
-            width: 100vw;
+            background-color: white;
             height: 100vh;
+            width: 100vw;
+            text-align: center;
+            padding-top: 10%;
         }
 
         .product-name {
@@ -88,9 +92,10 @@
             border: none;
             border-radius: 5px;
             padding: 10px 20px;
-            font-size: 1rem;
+            font-size: 1.2rem;
             cursor: pointer;
             text-decoration: none;
+            margin-right: 20px;
         }
 
         .edit-btn {
@@ -99,9 +104,18 @@
             border: none;
             border-radius: 5px;
             padding: 10px 20px;
-            font-size: 1rem;
+            font-size: 1.2rem;
             cursor: pointer;
             text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .delete-btn:hover{
+            transform: scale(1.05);
+        }
+        
+        .edit-btn:hover{
+            transform: scale(1.05);
         }
 
     </style>
@@ -109,18 +123,19 @@
 <body>
     <header>
         <div class="top-bar">
-            <a href="/"><h1 class="store-name">Node Store</h1></a>
+            <a href="/"><h2>Node Store</h2></a>
         </div>
     </header>
-
     <main class="product-details">
         <div class="product-window">
             <img src= <%- product[0].image %> alt="Product Name">
             <h2 class="product-name"><%- product[0].name %></h2>
             <p class="product-price">Rs <%- product[0].price %></p>
             <p class="product-description"><%- product[0].description %></p>
-            <button class="delete-btn"><a href="/delete/<%- product[0].id %>">Delete</a></button>
-            <button class="edit-btn"><a href="/edit/<%- product[0].id %>">Edit</a></button>
+            <div class="buttons">
+                <button class="delete-btn"><a href="/delete/<%- product[0].id %>">Delete</a></button>
+                <button class="edit-btn"><a href="/edit/<%- product[0].id %>">Edit</a></button>
+            </div>
         </div>
     </main>
 </body>
