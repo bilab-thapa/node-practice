@@ -3,15 +3,11 @@ const { product, user } = require("./model/index");
 const bcrypt = require("bcrypt");
 const app = express();
 
-// form bata data aairaxa parse gara or handle gar vaneko ho
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-//telling node to use ejs
-
 app.set("view engine", "ejs");
 
-//dbconnection
 require("./model/index");
 
 app.get("/", (req, res) => {
@@ -43,7 +39,7 @@ app.post("/register", async (req, res) => {
     password: bcrypt.hashSync(password, 8),
   });
 
-  res.send("Success");
+  res.redirect("/login");
 });
 
 app.get("/login", (req, res) => {
@@ -87,7 +83,6 @@ app.post("/createProduct", async (req, res) => {
     description: description,
     image: image,
   });
-  console.log(req.body);
   res.redirect("/home");
 });
 

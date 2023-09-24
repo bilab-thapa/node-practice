@@ -6,8 +6,8 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
   dialect: dbConfig.dialect,
   operatorsAliases: false,
-  port: 8080,
-  // port : 7013,
+  // port: 8080,
+  port: 6753,
   pool: {
     max: dbConfig.pool.max,
     min: dbConfig.pool.min,
@@ -30,7 +30,6 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-// importing model files
 db.product = require("./productModel.js")(sequelize, DataTypes);
 db.user = require("./userModel.js")(sequelize, DataTypes);
 

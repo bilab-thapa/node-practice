@@ -1,24 +1,9 @@
-// FOR LOCAL ENVIRONMENT
-module.exports = {
-  HOST: "localhost",
-  USER: "root",
-  PASSWORD: "",
-  DB: "store",
-  dialect: "mysql",
-  pool: {
-    max: 5,
-    min: 0,
-    acquire: 30000,
-    idle: 10000,
-  },
-};
-
-// for production
+// // FOR LOCAL ENVIRONMENT
 // module.exports = {
-//   HOST: "containers-us-west-206.railway.app",
+//   HOST: "localhost",
 //   USER: "root",
-//   PASSWORD: "qz3ncGhNgAyUlzqrvo8o",
-//   DB: "railway",
+//   PASSWORD: "",
+//   DB: "store",
 //   dialect: "mysql",
 //   pool: {
 //     max: 5,
@@ -27,3 +12,18 @@ module.exports = {
 //     idle: 10000,
 //   },
 // };
+
+// for production
+module.exports = {
+  HOST: "containers-us-west-84.railway.app",
+  USER: "root",
+  PASSWORD: "UaVxeimkzbkXzabyYyo6",
+  DB: "railway",
+  dialect: "mysql",
+  pool: {
+    max: 5,
+    min: 0,
+    acquire: 30000,
+    idle: 10000,
+  },
+};
