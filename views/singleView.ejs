@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Name - Node Store</title>
+    <style>
+        /* Reset some default styles */
+        body, h1, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        /* Header styles */
+        .top-bar {
+            background-color: #F7A072;
+            color: #fff;
+            text-align: center;
+        }
+
+        .top-bar a{
+            padding: 5px;
+        }
+
+        .store-name {
+            font-size: 2rem;
+        }
+
+        /* Product details styles */
+        .product-details {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .product-window {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 80px;
+            text-align: center;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .product-name {
+            font-size: 2.5rem;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 1.75rem;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .product-description {
+            font-size: 1.25rem;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            max-height: 300px; 
+            object-fit: contain;
+            border-radius: 5px;
+        }
+
+        .delete-btn {
+            background-color: red;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <a href="/"><h1 class="store-name">Node Store</h1></a>
+        </div>
+    </header>
+
+    <main class="product-details">
+        <div class="product-window">
+            <img src= <%- product[0].image %> alt="Product Name">
+            <h2 class="product-name"><%- product[0].name %></h2>
+            <p class="product-price">Rs <%- product[0].price %></p>
+            <p class="product-description"><%- product[0].description %></p>
+            <button class="delete-btn"><a href="/delete/<%- product[0].id %>">Delete</a></button>
+        </div>
+    </main>
+</body>
+</html>

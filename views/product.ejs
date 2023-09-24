@@ -12,7 +12,7 @@
         }
 
         .top-bar {
-            background-color: red;
+            background-color: #F7A072;
             color: #fff;
             padding: 10px 0;
             text-align: center;
@@ -35,7 +35,7 @@
         }
 
         .card {
-            background-color: #fff;
+            background-color: #EDDEA4;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             width: 300px;
@@ -64,7 +64,7 @@
 
         /* Style for the "Add Product" button */
         .add-button {
-            background-color: green;
+            background-color: #00A7E1;
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -78,8 +78,17 @@
         }
 
         .add-button:hover {
-            background-color: green;
+            
             transform: scale(1.05);
+        }
+
+        .show {
+            text-decoration: none;
+            color: #00A7E1;
+        }
+
+        .show:hover{
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -102,7 +111,8 @@
                     <div class="card">
                         <h2><%- product.name  %></h2>
                         <h3>Rs <%- product.price %></h3>
-                        <p><%- product.description.slice(0,100) %>...</p>
+                        <p><%- product.description.slice(0,100) %></p>
+                        <a class="show" href="/single/<%-product.id %>">Show More</a>
                     </div>
             <%       }) %>
             
