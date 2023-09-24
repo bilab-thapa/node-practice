@@ -32,6 +32,7 @@ db.sequelize = sequelize;
 
 // importing model files
 db.product = require("./productModel.js")(sequelize, DataTypes);
+db.user = require("./userModel.js")(sequelize, DataTypes);
 
 db.sequelize.sync({ force: false }).then(() => {
   console.log("yes re-sync done");

@@ -1,5 +1,6 @@
 const express = require("express");
-const { product } = require("./model/index");
+const { product, user } = require("./model/index");
+const bcrypt = require("bcrypt");
 const app = express();
 
 // form bata data aairaxa parse gara or handle gar vaneko ho
@@ -17,6 +18,32 @@ app.get("/", async (req, res) => {
   const allProduct = await product.findAll();
   console.log(allProduct);
   res.render("product", { product: allProduct });
+});
+
+app.get("/register", (req, res) => {
+  res.render("register");
+});
+
+app.post("/register", async (req, res) => {
+  const email = req.body.email;
+  const username = req.body.username;
+  const password = req.body.password;
+
+  if (!email || !username || !password) {
+    return res.send("Please enter details");
+  }
+
+  await user.create({
+    email: email,
+    username: username,
+    password: bcrypt.hashSync(password, 8),
+  });
+
+  res.send("Success");
+});
+
+app.get("/login", (req, res) => {
+  res.render("login");
 });
 
 app.get("/createProduct", (req, res) => {
