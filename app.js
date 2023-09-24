@@ -46,6 +46,28 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
+app.post("/login", async (req, res) => {
+  const username = req.body.username;
+  const password = req.body.password;
+
+  const userExist = await user.findAll({
+    where: {
+      username: username,
+    },
+  });
+
+  if (userExist.length > 0) {
+    const isMatch = bcrypt.compareSync(password, userExist[0].password);
+    if (isMatch) {
+      res.redirect("/");
+    } else {
+      res.send("Invalid Credentials");
+    }
+  } else {
+    res.send("Invalid Credentials");
+  }
+});
+
 app.get("/createProduct", (req, res) => {
   res.render("createProduct");
 });
