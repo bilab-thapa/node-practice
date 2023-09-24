@@ -94,23 +94,19 @@
     </div>
 
     <div class="container">
-        <div class="card">
-            <h2>Product 1</h2>
-            <p class="price">$19.99</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
 
-        <div class="card">
-            <h2>Product 2</h2>
-            <p class="price">$29.99</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-
-        <div class="card">
-            <h2>Product 3</h2>
-            <p class="price">$39.99</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
+        <%  if(product.length == 0){ %>
+            <h1>No Product</h1>
+          <%  }else{ %>
+                <% product.forEach((product)=>{ %>
+                    <div class="card">
+                        <h2><%- product.name  %></h2>
+                        <h3>Rs <%- product.price %></h3>
+                        <p><%- product.description.slice(0,100) %>...</p>
+                    </div>
+            <%       }) %>
+            
+            <% } %>
     </div>
 </body>
 </html>

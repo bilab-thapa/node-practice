@@ -13,8 +13,10 @@ app.set("view engine", "ejs");
 //dbconnection
 require("./model/index");
 
-app.get("/", (req, res) => {
-  res.render("product");
+app.get("/", async (req, res) => {
+  const allProduct = await product.findAll();
+  console.log(allProduct);
+  res.render("product", { product: allProduct });
 });
 
 app.get("/createProduct", (req, res) => {
@@ -31,7 +33,7 @@ app.post("/createProduct", async (req, res) => {
     description: description,
   });
   console.log(req.body);
-  res.send("Product Added Successfully");
+  res.redirect("/");
 });
 
 app.listen(3000, () => {
