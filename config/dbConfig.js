@@ -1,4 +1,4 @@
-// // FOR LOCAL ENVIRONMENT
+// FOR LOCAL ENVIRONMENT
 // module.exports = {
 //   HOST: "localhost",
 //   USER: "root",
