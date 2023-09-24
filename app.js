@@ -58,6 +58,41 @@ app.get("/delete/:id", async (req, res) => {
   res.redirect("/");
 });
 
+app.get("/edit/:id", async (req, res) => {
+  const id = req.params.id;
+  const allProduct = await product.findAll({
+    where: {
+      id: id,
+    },
+  });
+
+  res.render("editProduct", { product: allProduct });
+});
+
+app.post("/editProduct/:id", async (req, res) => {
+  const id = req.params.id;
+  const name = req.body.name;
+  const price = req.body.price;
+  const description = req.body.description;
+  const image = req.body.image;
+
+  await product.update(
+    {
+      name: name,
+      price: price,
+      description: description,
+      image: image,
+    },
+    {
+      where: {
+        id: id,
+      },
+    }
+  );
+
+  res.redirect("/single/" + id);
+});
+
 app.listen(3000, () => {
   console.log("NodeJS running at server 3000");
 });

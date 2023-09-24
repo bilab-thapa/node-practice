@@ -93,6 +93,17 @@
             text-decoration: none;
         }
 
+        .edit-btn {
+            background-color: #00A7E1;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
     </style>
 </head>
 <body>
@@ -109,6 +120,7 @@
             <p class="product-price">Rs <%- product[0].price %></p>
             <p class="product-description"><%- product[0].description %></p>
             <button class="delete-btn"><a href="/delete/<%- product[0].id %>">Delete</a></button>
+            <button class="edit-btn"><a href="/edit/<%- product[0].id %>">Edit</a></button>
         </div>
     </main>
 </body>

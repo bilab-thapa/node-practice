@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Card</title>
+    <style>
+        /* Internal CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f1f1f1;
+        }
+
+        header {
+            background-color: #F7A072;
+            color: #fff;
+            padding: 2px 0px;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(80vh - 80px);
+        }
+
+        .card {
+            background-color: #EDDEA4;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 10px;
+            width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .card form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .card input[type="text"],
+        .card textarea {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .card button {
+            background-color: #00A7E1;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>Edit Product Page</h2>
+    </header>
+   
+    <div class="container">
+        <div class="card">
+            <h2>Enter Product Details</h2>
+            <form action="/editProduct/<%- product[0].id %>" method="post">
+                <label for="name">Name:</label>
+                <input type="text" value="<%- product[0].name %>" id="name" name="name" required>
+
+                <label for="price">Price:</label>
+                <input type="text" value="<%- product[0].price %>" id="price" name="price" required>
+
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4" required><%- product[0].description %></textarea>
+
+                <label for="image">Image Link:</label>
+                <input type="text" value="<%- product[0].image %>" id="image" name="image" required>
+
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
